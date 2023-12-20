@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "90839e41-37e1-4ce0-a6ea-a24dcd9c649e",
+		"name": "AdminPanel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14470294"
+	},
+	"item": [
+		{
+			"name": "$MODEL_NAME$",
+			"item": [
+				{
+					"name": "Create",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": $COLUMNS$
+						},
+						"url": {
+							"raw": "{{url}}admin/$PATH$",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$"
+							]
+						}
+					}
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}admin/$PATH$",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$"
+							]
+						}
+					}
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/$PATH$/1",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": $COLUMNS$
+						},
+						"url": {
+							"raw": "{{url}}admin/$PATH$/1",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/$PATH$/1",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Change Activity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}admin/$PATH$/changeStatues/1",
+							"host": [
+								"{{url}}admin"
+							],
+							"path": [
+								"$PATH$",
+								"changeStatues",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
