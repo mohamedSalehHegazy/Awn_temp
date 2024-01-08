@@ -1,0 +1,55 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\Admin\$CREATE_REQUEST$ as CreateRequest;
+use App\Http\Requests\Admin\$UPDATE_REQUEST$ as UpdateRequest;
+use Illuminate\Support\Facades\Log;
+
+class $CLASS_NAME$ extends BaseController
+{
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->model = \App\Models\$MODEL_NAME$::class;
+        $this->path = '$PATH$';
+        $this->uploads = [];
+        $this->listResource = \App\Http\Resources\Admin\$LIST_RESOURCE$::class;
+        $this->singleResource = \App\Http\Resources\Admin\$SINGLE_RESOURCE$::class;
+        $this->listRelations = [];
+        $this->showRelations = [];
+    }
+
+    /**
+    * Create a New Record
+    * @param CreateRequest $request
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function store(CreateRequest $request)
+    {
+        try {
+            return parent::create($request);
+        } catch (\Throwable $th) {
+            Log::error($th);
+            return failResponse($th);
+        }
+    }
+
+    /**
+    * Update Record
+    * @param UpdateRequest $request
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function update(UpdateRequest $request, $id)
+    {
+        try {
+            return parent::edit($request, $id);
+        } catch (\Throwable $th) {
+            Log::error($th);
+            return failResponse($th);
+        }
+    }
+}

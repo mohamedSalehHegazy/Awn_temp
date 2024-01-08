@@ -1,0 +1,13 @@
+<?php
+
+use App\Http\Controllers\Admin\$CONTROLLER_NAME$;
+use Illuminate\Support\Facades\Route;
+
+Route::group(['prefix'=>'$PATH$'], function() {
+    Route::get('/', [$CONTROLLER_NAME$::class, 'index'])->name('$PATH$.index');
+    Route::get('/{id}', [$CONTROLLER_NAME$::class, 'show'])->name('$PATH$.show');
+    Route::post('/', [$CONTROLLER_NAME$::class, 'store'])->name('$PATH$.store');
+    Route::put('/{id}', [$CONTROLLER_NAME$::class, 'update'])->name('$PATH$.update');
+    Route::delete('/{id}', [$CONTROLLER_NAME$::class, 'destroy'])->name('$PATH$.destroy');
+    Route::put('/changeStatues/{id}', [$CONTROLLER_NAME$::class, 'changeStatues'])->name('$PATH$.changeStatues');
+});

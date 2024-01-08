@@ -1,0 +1,82 @@
+<?php
+namespace Database\Seeders;
+
+use App\Models\Permission;
+use App\Models\Role;
+use Illuminate\Database\Seeder;
+
+class $CLASS_NAME$ extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+    */
+    public function run()
+    {
+        Permission::firstOrCreate(
+            [
+                'title'=>'list_$PATH$'
+            ],
+            [
+                'title'=>'list_$PATH$',
+                'url'=>'$PATH$.index',
+            ]
+        );
+
+        Permission::firstOrCreate(
+                [
+                    'title'=>'create_$PATH$'
+                ],
+                [
+                    'title'=>'create_$PATH$',
+                    'url'=>'$PATH$.store',
+                ]
+        );
+
+        Permission::firstOrCreate(
+                [
+                    'title'=>'show_$PATH$'
+                ],
+                [
+                    'title'=>'show_$PATH$',
+                    'url'=>'$PATH$.show',
+                ]
+        );
+
+        Permission::firstOrCreate(
+                [
+                    'title'=>'update_$PATH$'
+                ],
+                [
+                    'title'=>'update_$PATH$',
+                    'url'=>'$PATH$.update',
+                ]
+        );
+
+        Permission::firstOrCreate(
+                [
+                    'title'=>'delete_$PATH$'
+                ],
+                [
+                    'title'=>'delete_$PATH$',
+                    'url'=>'$PATH$.destroy',
+                ]
+        );
+    
+        Permission::firstOrCreate(
+                [
+                    'title'=>'changeStatues_$PATH$'
+                ],
+                [
+                    'title'=>'changeStatues_$PATH$',
+                    'url'=>'$PATH$.changeStatues',
+                ]
+        );
+
+        $roles = Role::find(1);
+        $superAdminPermissions = Permission::pluck('id')->toArray();
+        $roles->permissions()->sync($superAdminPermissions);
+    }
+       
+}
